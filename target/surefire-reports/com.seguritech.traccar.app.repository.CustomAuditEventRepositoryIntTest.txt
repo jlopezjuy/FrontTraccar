@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.seguritech.traccar.app.repository.CustomAuditEventRepositoryIntTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 47.575 sec - in com.seguritech.traccar.app.repository.CustomAuditEventRepositoryIntTest

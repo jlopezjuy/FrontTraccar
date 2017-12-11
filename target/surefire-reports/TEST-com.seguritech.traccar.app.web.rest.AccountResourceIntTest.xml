@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="15.608" tests="28" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
+    <property name="java.vm.version" value="25.151-b12"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/mostro/Proyectos/Seguritech/FrontTraccar"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="AR"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/home/mostro/Proyectos/Seguritech/FrontTraccar"/>
+    <property name="java.runtime.version" value="1.8.0_151-b12"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Linux"/>
+    <property name="classworlds.conf" value="/usr/share/maven/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="4.9.0-4-amd64"/>
+    <property name="user.home" value="/home/mostro"/>
+    <property name="user.timezone" value="America/Buenos_Aires"/>
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="user.name" value="mostro"/>
+    <property name="java.class.path" value="/usr/share/maven/boot/plexus-classworlds-2.x.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/usr/lib/jvm/java-8-oracle/jre"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="es"/>
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_151"/>
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="securerandom.source" value="file:/dev/./urandom"/>
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/usr/share/maven"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="gnome"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase name="testSaveInvalidEmail" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="1.779"/>
+  <testcase name="testRequestPasswordReset" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.65"/>
+  <testcase name="testFinishPasswordResetTooSmall" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.626"/>
+  <testcase name="testSaveExistingEmail" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.973"/>
+  <testcase name="testSaveExistingEmailAndLogin" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.79"/>
+  <testcase name="testRegisterInvalidEmail" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.658"/>
+  <testcase name="testRegisterInvalidLogin" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.537"/>
+  <testcase name="testRegisterInvalidPassword" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.591"/>
+  <testcase name="testSaveAccount" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.593"/>
+  <testcase name="testFinishPasswordReset" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="1.109"/>
+  <testcase name="testRegisterNullPassword" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.338"/>
+  <testcase name="testRequestPasswordResetUpperCaseEmail" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.474"/>
+  <testcase name="testRegisterAdminIsIgnored" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.561"/>
+  <testcase name="testActivateAccountWithWrongKey" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.374"/>
+  <testcase name="testGetUnknownAccount" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.293"/>
+  <testcase name="testChangePassword" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.815"/>
+  <testcase name="testChangePasswordTooSmall" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.628"/>
+  <testcase name="testChangePasswordTooLong" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.505"/>
+  <testcase name="testChangePasswordEmpty" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.348"/>
+  <testcase name="testRegisterDuplicateEmail" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.42"/>
+  <testcase name="testRegisterDuplicateLogin" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.395"/>
+  <testcase name="testAuthenticatedUser" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.256"/>
+  <testcase name="testActivateAccount" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.24"/>
+  <testcase name="testRequestPasswordResetWrongEmail" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.273"/>
+  <testcase name="testRegisterValid" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.367"/>
+  <testcase name="testNonAuthenticatedUser" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.243"/>
+  <testcase name="testGetExistingAccount" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.389"/>
+  <testcase name="testFinishPasswordResetWrongKey" classname="com.seguritech.traccar.app.web.rest.AccountResourceIntTest" time="0.383"/>
+</testsuite>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CacheConfiguration.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Front Traccar</a> &gt; <a href="index.source.html" class="el_package">com.seguritech.traccar.app.config</a> &gt; <span class="el_source">CacheConfiguration.java</span></div><h1>CacheConfiguration.java</h1><pre class="source lang-java linenums">package com.seguritech.traccar.app.config;
+
+import io.github.jhipster.config.JHipsterConstants;
+import io.github.jhipster.config.JHipsterProperties;
+
+import com.hazelcast.config.*;
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.core.Hazelcast;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.*;
+import org.springframework.core.env.Environment;
+
+import javax.annotation.PreDestroy;
+
+@Configuration
+@EnableCaching
+@AutoConfigureAfter(value = { MetricsConfiguration.class })
+@AutoConfigureBefore(value = { WebConfigurer.class, DatabaseConfiguration.class })
+public class CacheConfiguration {
+
+<span class="fc" id="L28">    private final Logger log = LoggerFactory.getLogger(CacheConfiguration.class);</span>
+
+    private final Environment env;
+
+<span class="fc" id="L32">    public CacheConfiguration(Environment env) {</span>
+<span class="fc" id="L33">        this.env = env;</span>
+<span class="fc" id="L34">    }</span>
+
+    @PreDestroy
+    public void destroy() {
+<span class="nc" id="L38">        log.info(&quot;Closing Cache Manager&quot;);</span>
+<span class="nc" id="L39">        Hazelcast.shutdownAll();</span>
+<span class="nc" id="L40">    }</span>
+
+    @Bean
+    public CacheManager cacheManager(HazelcastInstance hazelcastInstance) {
+<span class="fc" id="L44">        log.debug(&quot;Starting HazelcastCacheManager&quot;);</span>
+<span class="fc" id="L45">        CacheManager cacheManager = new com.hazelcast.spring.cache.HazelcastCacheManager(hazelcastInstance);</span>
+<span class="fc" id="L46">        return cacheManager;</span>
+    }
+
+    @Bean
+    public HazelcastInstance hazelcastInstance(JHipsterProperties jHipsterProperties) {
+<span class="fc" id="L51">        log.debug(&quot;Configuring Hazelcast&quot;);</span>
+<span class="fc" id="L52">        HazelcastInstance hazelCastInstance = Hazelcast.getHazelcastInstanceByName(&quot;FrontTraccar&quot;);</span>
+<span class="pc bpc" id="L53" title="1 of 2 branches missed.">        if (hazelCastInstance != null) {</span>
+<span class="nc" id="L54">            log.debug(&quot;Hazelcast already initialized&quot;);</span>
+<span class="nc" id="L55">            return hazelCastInstance;</span>
+        }
+<span class="fc" id="L57">        Config config = new Config();</span>
+<span class="fc" id="L58">        config.setInstanceName(&quot;FrontTraccar&quot;);</span>
+<span class="fc" id="L59">        config.getNetworkConfig().setPort(5701);</span>
+<span class="fc" id="L60">        config.getNetworkConfig().setPortAutoIncrement(true);</span>
+
+        // In development, remove multicast auto-configuration
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        if (env.acceptsProfiles(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT)) {</span>
+<span class="nc" id="L64">            System.setProperty(&quot;hazelcast.local.localAddress&quot;, &quot;127.0.0.1&quot;);</span>
+
+<span class="nc" id="L66">            config.getNetworkConfig().getJoin().getAwsConfig().setEnabled(false);</span>
+<span class="nc" id="L67">            config.getNetworkConfig().getJoin().getMulticastConfig().setEnabled(false);</span>
+<span class="nc" id="L68">            config.getNetworkConfig().getJoin().getTcpIpConfig().setEnabled(false);</span>
+        }
+<span class="fc" id="L70">        config.getMapConfigs().put(&quot;default&quot;, initializeDefaultMapConfig());</span>
+
+        // Full reference is available at: http://docs.hazelcast.org/docs/management-center/3.9/manual/html/Deploying_and_Starting.html
+<span class="fc" id="L73">        config.setManagementCenterConfig(initializeDefaultManagementCenterConfig(jHipsterProperties));</span>
+<span class="fc" id="L74">        config.getMapConfigs().put(&quot;com.seguritech.traccar.app.domain.*&quot;, initializeDomainMapConfig(jHipsterProperties));</span>
+<span class="fc" id="L75">        return Hazelcast.newHazelcastInstance(config);</span>
+    }
+
+    private ManagementCenterConfig initializeDefaultManagementCenterConfig(JHipsterProperties jHipsterProperties) {
+<span class="fc" id="L79">        ManagementCenterConfig managementCenterConfig = new ManagementCenterConfig();</span>
+<span class="fc" id="L80">        managementCenterConfig.setEnabled(jHipsterProperties.getCache().getHazelcast().getManagementCenter().isEnabled());</span>
+<span class="fc" id="L81">        managementCenterConfig.setUrl(jHipsterProperties.getCache().getHazelcast().getManagementCenter().getUrl());</span>
+<span class="fc" id="L82">        managementCenterConfig.setUpdateInterval(jHipsterProperties.getCache().getHazelcast().getManagementCenter().getUpdateInterval());</span>
+<span class="fc" id="L83">        return managementCenterConfig;</span>
+    }
+
+    private MapConfig initializeDefaultMapConfig() {
+<span class="fc" id="L87">        MapConfig mapConfig = new MapConfig();</span>
+
+    /*
+        Number of backups. If 1 is set as the backup-count for example,
+        then all entries of the map will be copied to another JVM for
+        fail-safety. Valid numbers are 0 (no backup), 1, 2, 3.
+     */
+<span class="fc" id="L94">        mapConfig.setBackupCount(0);</span>
+
+    /*
+        Valid values are:
+        NONE (no eviction),
+        LRU (Least Recently Used),
+        LFU (Least Frequently Used).
+        NONE is the default.
+     */
+<span class="fc" id="L103">        mapConfig.setEvictionPolicy(EvictionPolicy.LRU);</span>
+
+    /*
+        Maximum size of the map. When max size is reached,
+        map is evicted based on the policy defined.
+        Any integer between 0 and Integer.MAX_VALUE. 0 means
+        Integer.MAX_VALUE. Default is 0.
+     */
+<span class="fc" id="L111">        mapConfig.setMaxSizeConfig(new MaxSizeConfig(0, MaxSizeConfig.MaxSizePolicy.USED_HEAP_SIZE));</span>
+
+<span class="fc" id="L113">        return mapConfig;</span>
+    }
+
+    private MapConfig initializeDomainMapConfig(JHipsterProperties jHipsterProperties) {
+<span class="fc" id="L117">        MapConfig mapConfig = new MapConfig();</span>
+<span class="fc" id="L118">        mapConfig.setTimeToLiveSeconds(jHipsterProperties.getCache().getHazelcast().getTimeToLiveSeconds());</span>
+<span class="fc" id="L119">        return mapConfig;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

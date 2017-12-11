@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.seguritech.traccar.app.web.rest.AccountResourceIntTest
+-------------------------------------------------------------------------------
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.962 sec - in com.seguritech.traccar.app.web.rest.AccountResourceIntTest
