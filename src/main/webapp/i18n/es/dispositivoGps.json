@@ -1,0 +1,22 @@
+{
+    "frontTraccarApp": {
+        "dispositivoGps" : {
+            "home": {
+                "title": "Dispositivo Gps",
+                "createLabel": "Crear nuevo Dispositivo Gps",
+                "createOrEditLabel": "Crear o editar Dispositivo Gps"
+            },
+            "created": "Un nuevo Dispositivo Gps ha sido creado con el identificador {{ param }}",
+            "updated": "Un Dispositivo Gps ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Dispositivo Gps ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Dispositivo Gps {{ id }}?"
+            },
+            "detail": {
+                "title": "Dispositivo Gps"
+            },
+            "idDispositivo": "Id Dispositivo",
+            "fechaCreacion": "Fecha Creacion"
+        }
+    }
+}

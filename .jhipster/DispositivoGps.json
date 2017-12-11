@@ -1,0 +1,26 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "idDispositivo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "fechaCreacion",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20171211193930",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "dispositivo_gps",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}
