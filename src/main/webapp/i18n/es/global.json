@@ -8,6 +8,7 @@
             "entities": {
                 "main": "Entidades",
                 "dispositivoGps": "Dispositivo Gps",
+                "ultimaUbicacion": "Ultima Ubicacion",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

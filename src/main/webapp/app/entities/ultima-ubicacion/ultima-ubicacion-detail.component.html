@@ -1,0 +1,50 @@
+
+<div *ngIf="ultimaUbicacion">
+    <h2><span jhiTranslate="frontTraccarApp.ultimaUbicacion.detail.title">Ultima Ubicacion</span> {{ultimaUbicacion.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="frontTraccarApp.ultimaUbicacion.latitud">Latitud</span></dt>
+        <dd>
+            <span>{{ultimaUbicacion.latitud}}</span>
+        </dd>
+        <dt><span jhiTranslate="frontTraccarApp.ultimaUbicacion.longitud">Longitud</span></dt>
+        <dd>
+            <span>{{ultimaUbicacion.longitud}}</span>
+        </dd>
+        <dt><span jhiTranslate="frontTraccarApp.ultimaUbicacion.altitud">Altitud</span></dt>
+        <dd>
+            <span>{{ultimaUbicacion.altitud}}</span>
+        </dd>
+        <dt><span jhiTranslate="frontTraccarApp.ultimaUbicacion.velocidad">Velocidad</span></dt>
+        <dd>
+            <span>{{ultimaUbicacion.velocidad}}</span>
+        </dd>
+        <dt><span jhiTranslate="frontTraccarApp.ultimaUbicacion.curso">Curso</span></dt>
+        <dd>
+            <span>{{ultimaUbicacion.curso}}</span>
+        </dd>
+        <dt><span jhiTranslate="frontTraccarApp.ultimaUbicacion.direccion">Direccion</span></dt>
+        <dd>
+            <span>{{ultimaUbicacion.direccion}}</span>
+        </dd>
+        <dt><span jhiTranslate="frontTraccarApp.ultimaUbicacion.fecha">Fecha</span></dt>
+        <dd>
+            <span>{{ultimaUbicacion.fecha | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ultima-ubicacion/'+ ultimaUbicacion.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,107 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myUltimaUbicacionLabel" jhiTranslate="frontTraccarApp.ultimaUbicacion.home.createOrEditLabel">Create or edit a Ultima Ubicacion</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!ultimaUbicacion.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="ultimaUbicacion.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="frontTraccarApp.ultimaUbicacion.latitud" for="field_latitud">Latitud</label>
+            <input type="text" class="form-control" name="latitud" id="field_latitud"
+                [(ngModel)]="ultimaUbicacion.latitud" required/>
+            <div [hidden]="!(editForm.controls.latitud?.dirty && editForm.controls.latitud?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.latitud?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="frontTraccarApp.ultimaUbicacion.longitud" for="field_longitud">Longitud</label>
+            <input type="text" class="form-control" name="longitud" id="field_longitud"
+                [(ngModel)]="ultimaUbicacion.longitud" required/>
+            <div [hidden]="!(editForm.controls.longitud?.dirty && editForm.controls.longitud?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.longitud?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="frontTraccarApp.ultimaUbicacion.altitud" for="field_altitud">Altitud</label>
+            <input type="text" class="form-control" name="altitud" id="field_altitud"
+                [(ngModel)]="ultimaUbicacion.altitud" required/>
+            <div [hidden]="!(editForm.controls.altitud?.dirty && editForm.controls.altitud?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.altitud?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="frontTraccarApp.ultimaUbicacion.velocidad" for="field_velocidad">Velocidad</label>
+            <input type="text" class="form-control" name="velocidad" id="field_velocidad"
+                [(ngModel)]="ultimaUbicacion.velocidad" required/>
+            <div [hidden]="!(editForm.controls.velocidad?.dirty && editForm.controls.velocidad?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.velocidad?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="frontTraccarApp.ultimaUbicacion.curso" for="field_curso">Curso</label>
+            <input type="text" class="form-control" name="curso" id="field_curso"
+                [(ngModel)]="ultimaUbicacion.curso" required/>
+            <div [hidden]="!(editForm.controls.curso?.dirty && editForm.controls.curso?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.curso?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="frontTraccarApp.ultimaUbicacion.direccion" for="field_direccion">Direccion</label>
+            <input type="text" class="form-control" name="direccion" id="field_direccion"
+                [(ngModel)]="ultimaUbicacion.direccion" required/>
+            <div [hidden]="!(editForm.controls.direccion?.dirty && editForm.controls.direccion?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.direccion?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="frontTraccarApp.ultimaUbicacion.fecha" for="field_fecha">Fecha</label>
+            <div class="input-group">
+                <input id="field_fecha" type="text" class="form-control" name="fecha" ngbDatepicker  #fechaDp="ngbDatepicker" [(ngModel)]="ultimaUbicacion.fecha"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-secondary" (click)="fechaDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.fecha?.dirty && editForm.controls.fecha?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.fecha?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
