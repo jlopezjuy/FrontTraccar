@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity DispGpsUltUb.
+    -->
+    <changeSet id="20171211194903-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="dispositivo_gps_id"
+                                 baseTableName="disp_gps_ult_ub"
+                                 constraintName="fk_disp_gps_ult_ub_dispositivo_gps_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dispositivo_gps"/>
+
+        <addForeignKeyConstraint baseColumnNames="ultima_ubicacion_id"
+                                 baseTableName="disp_gps_ult_ub"
+                                 constraintName="fk_disp_gps_ult_ub_ultima_ubicacion_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ultima_ubicacion"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -41,6 +41,12 @@
                             <span jhiTranslate="global.menu.entities.ultimaUbicacion">Ultima Ubicacion</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="dropdown-item" routerLink="disp-gps-ult-ub" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                            <span jhiTranslate="global.menu.entities.dispGpsUltUb">Disp Gps Ult Ub</span>
+                        </a>
+                    </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>

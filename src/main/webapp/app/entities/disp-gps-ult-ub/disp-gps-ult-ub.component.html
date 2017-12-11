@@ -1,0 +1,76 @@
+<div>
+    <h2>
+        <span jhiTranslate="frontTraccarApp.dispGpsUltUb.home.title">Disp Gps Ult Ubs</span>
+        <button class="btn btn-primary float-right jh-create-entity create-disp-gps-ult-ub" [routerLink]="['/', { outlets: { popup: ['disp-gps-ult-ub-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="frontTraccarApp.dispGpsUltUb.home.createLabel">
+            Create new Disp Gps Ult Ub
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="dispGpsUltUbs">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dispositivoGpsIdDispositivo"><span jhiTranslate="frontTraccarApp.dispGpsUltUb.dispositivoGps">Dispositivo Gps</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="ultimaUbicacionId"><span jhiTranslate="frontTraccarApp.dispGpsUltUb.ultimaUbicacion">Ultima Ubicacion</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let dispGpsUltUb of dispGpsUltUbs ;trackBy: trackId">
+                <td><a [routerLink]="['../disp-gps-ult-ub', dispGpsUltUb.id ]">{{dispGpsUltUb.id}}</a></td>
+                <td>
+                    <div *ngIf="dispGpsUltUb.dispositivoGpsId">
+                        <a [routerLink]="['../dispositivo-gps', dispGpsUltUb.dispositivoGpsId  ]" >{{dispGpsUltUb.dispositivoGpsIdDispositivo}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="dispGpsUltUb.ultimaUbicacionId">
+                        <a [routerLink]="['../ultima-ubicacion', dispGpsUltUb.ultimaUbicacionId  ]" >{{dispGpsUltUb.ultimaUbicacionId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../disp-gps-ult-ub', dispGpsUltUb.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'disp-gps-ult-ub/'+ dispGpsUltUb.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'disp-gps-ult-ub/'+ dispGpsUltUb.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div *ngIf="dispGpsUltUbs && dispGpsUltUbs.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

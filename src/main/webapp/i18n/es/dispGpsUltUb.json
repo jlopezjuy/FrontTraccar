@@ -1,0 +1,22 @@
+{
+    "frontTraccarApp": {
+        "dispGpsUltUb" : {
+            "home": {
+                "title": "Disp Gps Ult Ubs",
+                "createLabel": "Crear nuevo Disp Gps Ult Ub",
+                "createOrEditLabel": "Crear o editar Disp Gps Ult Ub"
+            },
+            "created": "Un nuevo Disp Gps Ult Ub ha sido creado con el identificador {{ param }}",
+            "updated": "Un Disp Gps Ult Ub ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Disp Gps Ult Ub ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Disp Gps Ult Ub {{ id }}?"
+            },
+            "detail": {
+                "title": "Disp Gps Ult Ub"
+            },
+            "dispositivoGps": "Dispositivo Gps",
+            "ultimaUbicacion": "Ultima Ubicacion"
+        }
+    }
+}
