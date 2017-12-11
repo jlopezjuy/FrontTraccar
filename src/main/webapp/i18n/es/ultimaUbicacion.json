@@ -1,0 +1,27 @@
+{
+    "frontTraccarApp": {
+        "ultimaUbicacion" : {
+            "home": {
+                "title": "Ultima Ubicacions",
+                "createLabel": "Crear nuevo Ultima Ubicacion",
+                "createOrEditLabel": "Crear o editar Ultima Ubicacion"
+            },
+            "created": "Un nuevo Ultima Ubicacion ha sido creado con el identificador {{ param }}",
+            "updated": "Un Ultima Ubicacion ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Ultima Ubicacion ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Ultima Ubicacion {{ id }}?"
+            },
+            "detail": {
+                "title": "Ultima Ubicacion"
+            },
+            "latitud": "Latitud",
+            "longitud": "Longitud",
+            "altitud": "Altitud",
+            "velocidad": "Velocidad",
+            "curso": "Curso",
+            "direccion": "Direccion",
+            "fecha": "Fecha"
+        }
+    }
+}

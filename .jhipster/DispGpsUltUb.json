@@ -1,0 +1,24 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "dispositivoGps",
+            "otherEntityName": "dispositivoGps",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "idDispositivo"
+        },
+        {
+            "relationshipName": "ultimaUbicacion",
+            "otherEntityName": "ultimaUbicacion",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20171211194903",
+    "dto": "mapstruct",
+    "service": "serviceImpl",
+    "entityTableName": "disp_gps_ult_ub",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}
