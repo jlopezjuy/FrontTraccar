@@ -4,6 +4,9 @@ import { JhiEventManager } from 'ng-jhipster';
 
 import { Account, LoginModalService, Principal } from '../shared';
 
+declare var google: any;
+declare var $: any;
+
 @Component({
     selector: 'jhi-home',
     templateUrl: './home.component.html',
@@ -15,6 +18,11 @@ import { Account, LoginModalService, Principal } from '../shared';
 export class HomeComponent implements OnInit {
     account: Account;
     modalRef: NgbModalRef;
+
+    mapProp: any;
+    map: any;
+    marker: any;
+    position: boolean = true;
 
     constructor(
         private principal: Principal,
@@ -28,6 +36,28 @@ export class HomeComponent implements OnInit {
             this.account = account;
         });
         this.registerAuthenticationSuccess();
+
+        let uluru = { lat: -24.203526, lng: -65.297196 };
+        this.mapProp = {
+            center: new google.maps.LatLng(-24.203526, -65.297196),
+            zoom: 18,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        let el = document.getElementById('gmap');
+        this.map = new google.maps.Map(el, this.mapProp);
+        let inicial = {
+            lat: -24.203526,
+            lng: -65.297196
+        };
+        this.marker = new google.maps.Marker({
+            position: inicial,
+            map: this.map
+        });
+        this.marker = new google.maps.Marker({
+            position: uluru,
+            map: this.map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png'
+        });
     }
 
     registerAuthenticationSuccess() {
