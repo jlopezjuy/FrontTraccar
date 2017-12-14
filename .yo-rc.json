@@ -4,7 +4,7 @@
       "packageName": "com.seguritech.traccar.app",
       "nativeLanguage": "es"
     },
-    "jhipsterVersion": "4.12.0",
+    "jhipsterVersion": "4.13.0",
     "baseName": "FrontTraccar",
     "packageName": "com.seguritech.traccar.app",
     "packageFolder": "com/seguritech/traccar/app",
