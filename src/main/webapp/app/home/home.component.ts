@@ -16,6 +16,10 @@ export class HomeComponent implements OnInit {
     account: Account;
     modalRef: NgbModalRef;
 
+    title: string = 'My first AGM project';
+    lat: number = 51.678418;
+    lng: number = 7.809007;
+
     constructor(
         private principal: Principal,
         private loginModalService: LoginModalService,

@@ -13,6 +13,8 @@ import { FrontTraccarEntityModule } from './entities/entity.module';
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 
+import { AgmCoreModule } from '@agm/core';
+
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 
 import {
@@ -35,6 +37,9 @@ import {
         FrontTraccarAdminModule,
         FrontTraccarAccountModule,
         FrontTraccarEntityModule,
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyDtT8EoFGNoAKpBL4ZclYLL_iMJmjDOFLE'
+        }),
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [

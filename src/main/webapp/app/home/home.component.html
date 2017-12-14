@@ -20,6 +20,10 @@
                 <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>
                 <a class="alert-link" routerLink="register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
             </div>
+
+            <agm-map [latitude]="lat" [longitude]="lng">
+                <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>
         </div>
 
         <p jhiTranslate="home.question">

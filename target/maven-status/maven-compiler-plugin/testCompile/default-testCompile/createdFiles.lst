@@ -1,5 +1,7 @@
 com/seguritech/traccar/app/web/rest/AuditResourceIntTest.class
+com/seguritech/traccar/app/web/rest/DispositivoGpsResourceIntTest.class
 com/seguritech/traccar/app/config/WebConfigurerTest$MockFilterRegistration.class
+com/seguritech/traccar/app/web/rest/DispGpsUltUbResourceIntTest.class
 com/seguritech/traccar/app/web/rest/UserJWTControllerIntTest.class
 com/seguritech/traccar/app/web/rest/TestUtil.class
 com/seguritech/traccar/app/config/WebConfigurerTest.class
@@ -12,6 +14,7 @@ com/seguritech/traccar/app/web/rest/errors/ExceptionTranslatorTestController.cla
 com/seguritech/traccar/app/web/rest/UserResourceIntTest.class
 com/seguritech/traccar/app/service/MailServiceIntTest.class
 com/seguritech/traccar/app/web/rest/ProfileInfoResourceIntTest.class
+com/seguritech/traccar/app/web/rest/UltimaUbicacionResourceIntTest.class
 com/seguritech/traccar/app/web/rest/errors/ExceptionTranslatorTestController$TestResponseStatusException.class
 com/seguritech/traccar/app/web/rest/LogsResourceIntTest.class
 com/seguritech/traccar/app/web/rest/TestUtil$ZonedDateTimeMatcher.class
