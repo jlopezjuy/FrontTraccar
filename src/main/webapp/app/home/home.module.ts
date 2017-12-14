@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FrontTraccarSharedModule } from '../shared';
 
 import { HOME_ROUTE, HomeComponent } from './';
+import {MapComponent} from '../entities/map/map.component';
 
 @NgModule({
     imports: [
@@ -12,6 +13,7 @@ import { HOME_ROUTE, HomeComponent } from './';
     ],
     declarations: [
         HomeComponent,
+        MapComponent,
     ],
     entryComponents: [
     ],
